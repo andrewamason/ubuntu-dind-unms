@@ -1,4 +1,4 @@
-ARG UBUNTU_VERSION="24.04"
+ARG UBUNTU_VERSION="22.04"
 FROM ubuntu:${UBUNTU_VERSION}
 
 ARG UBUNTU_VERSION
@@ -57,6 +57,9 @@ RUN set -eux; \
     chmod +x /usr/local/bin/docker-compose && \
     docker-compose version && \
     ln -s /usr/local/bin/docker-compose /usr/local/lib/docker/cli-plugins/docker-compose
+# Install Unifi UISP
+RUN set -eux; \
+curl -fsSL https://uisp.ui.com/install > /tmp/uisp_inst.sh && sudo bash /tmp/uisp_inst.sh
 
 ENTRYPOINT ["entrypoint.sh"]
 CMD ["bash"]
