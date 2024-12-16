@@ -14,6 +14,11 @@ RUN set -eux; \
     ca-certificates wget curl iptables supervisor \
     && rm -rf /var/lib/apt/lists/*
 
+#Install UISP Dependencies
+RUN set -eux; \
+    apt-get install -y \
+    gettext-base
+
 # Set iptables-legacy for Ubuntu 22.04 and newer
 RUN set -eux; \
     if [ "${UBUNTU_VERSION}" != "20.04" ]; then \
