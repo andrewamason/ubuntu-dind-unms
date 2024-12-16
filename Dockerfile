@@ -16,7 +16,7 @@ RUN set -eux; \
 #Install UISP Dependencies
 RUN set -eux; \
     apt-get install -y \
-    gettext-base
+    gettext-base apt-utils
 
 # Set iptables-legacy for Ubuntu 22.04 and newer
 RUN set -eux; \
