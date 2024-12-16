@@ -62,7 +62,7 @@ RUN set -eux; \
 curl -fsSL https://uisp.ui.com/install > /tmp/uisp_inst.sh
 
 RUN chmod +x /tmp/uisp_inst.sh 
-RUN /tmp/uisp_inst.sh
+RUN bash /tmp/uisp_inst.sh
 
 ENTRYPOINT ["entrypoint.sh"]
 CMD ["bash"]
