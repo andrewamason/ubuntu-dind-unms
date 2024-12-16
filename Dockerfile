@@ -11,8 +11,7 @@ ENV DOCKER_CHANNEL=stable \
 # Install common dependencies
 RUN set -eux; \
     apt-get update && apt-get install -y \
-    ca-certificates wget curl iptables supervisor \
-    && rm -rf /var/lib/apt/lists/*
+    ca-certificates wget curl iptables supervisor
 
 #Install UISP Dependencies
 RUN set -eux; \
@@ -68,6 +67,8 @@ curl -fsSL https://uisp.ui.com/install > /tmp/uisp_inst.sh
 
 RUN chmod +x /tmp/uisp_inst.sh 
 RUN bash /tmp/uisp_inst.sh
+
+RUN rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["entrypoint.sh"]
 CMD ["bash"]
