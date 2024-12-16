@@ -59,7 +59,8 @@ RUN set -eux; \
     ln -s /usr/local/bin/docker-compose /usr/local/lib/docker/cli-plugins/docker-compose
 # Install Unifi UISP
 RUN set -eux; \
-curl -fsSL https://uisp.ui.com/install > /tmp/uisp_inst.sh && sudo bash /tmp/uisp_inst.sh
+curl -fsSL https://uisp.ui.com/install > /tmp/uisp_inst.sh && \
+bash /tmp/uisp_inst.sh
 
 ENTRYPOINT ["entrypoint.sh"]
 CMD ["bash"]
